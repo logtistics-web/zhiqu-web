@@ -8,11 +8,11 @@
             <p>Curabitur enim tellus, iaculis at imperdiet eget, pretium sit amet purus. Nullam eleifend ultricies consequat.</p>
             
             <ul id="social_box">
-                <li><a href="http://www.facebook.com/templatemo"><img src="images/facebook.png" alt="Facebook" /></a></li>
-                <li><a href="http://www.facebook.com/templatemo"><img src="images/twitter.png" alt="Twitter" /></a></li>
-                <li><a href="http://www.facebook.com/templatemo"><img src="images/linkedin.png" alt="Linkedin" /></a></li>
-                <li><a href="http://www.facebook.com/templatemo"><img src="images/technorati.png" alt="Technorati" /></a></li>
-                <li><a href="http://www.facebook.com/templatemo"><img src="images/myspace.png" alt="Myspace" /></a></li>                
+                <li><a href="http://www.facebook.com/templatemo"><img src="${rc.contextPath}/images/facebook.png" alt="Facebook" /></a></li>
+                <li><a href="http://www.facebook.com/templatemo"><img src="${rc.contextPath}/images/twitter.png" alt="Twitter" /></a></li>
+                <li><a href="http://www.facebook.com/templatemo"><img src="${rc.contextPath}/images/linkedin.png" alt="Linkedin" /></a></li>
+                <li><a href="http://www.facebook.com/templatemo"><img src="${rc.contextPath}/images/technorati.png" alt="Technorati" /></a></li>
+                <li><a href="http://www.facebook.com/templatemo"><img src="${rc.contextPath}/images/myspace.png" alt="Myspace" /></a></li>                
             </ul>
             
         </div>

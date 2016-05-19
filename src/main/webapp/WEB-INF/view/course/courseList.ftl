@@ -32,50 +32,34 @@
     <div id="templatemo_content">
     	
         <div class="col_w601">
-        	<div style="width:98%;background-color:#eeeeee;">
-                <div style="position:absolute;top:413px;"><h2 >公告信息列表</h2></div>
-                <table align="center"> 
-                
+        	 <div style="width:98%;background-color:#eeeeee;">
+                <div style="position:absolute;top:413px;"><h2 >课程信息介绍</h2></div>
+                <table > 
                     <tr>
-                        <td  height="30px" width="400px">
-                        公告名称
+                        <td  height="30px" width="600px">
+                        课程名称
                         </td>
-                        <td  height="30px" width="200px" >发布人
-                        </td>                        
-                        <td  height="30px" width="200px">&nbsp;&nbsp;发布时间
+                        <td  height="30px">&nbsp;&nbsp;发布时间
                         </td>
                     </tr>  
-                    <#if newsList??>
-                    	 <#list newsList as news>
-                   			 <tr>
-                        		<td  height="30px" width="600px">
-                        		<a  href="newsDetail/${news.id}" >
-                        			<#if news.getTitle()??>
-                           				 ${news.title}
-                        			</#if>
-                        		</a>
-                        		</td>
-                        		<td  height="30px">
-                        		<span>
-                        			<#if news.getAdder()??>
-                           				 ${news.adder}
-                        			</#if>
-                       			 </span>
-                        		</td>
-                        		<td  height="30px">
-                        		<span>
-                        			<#if news.getAddtime()??>
-                           				 ${news.addtime}
-                        			</#if>
-                        		</span>
-                        	</td>
-                    	</tr>
-                    	</#list>
-                    	</#if>
+                    <#if infoList??>
+            <#list infoList as info>
+        		 <tr>
+                        <td  height="30px" width="600px">
+                        <a  href="courseDetail/${info.id}" >${info.title}</a>
+                        </td>
+                        <td  height="30px"><span>${info.sj}</span>
+                        </td>
+                    </tr>
+            </#list>
+            </#if>
                 </table>
-                <div id="fbMappingPageBar"></div>
-                </div>
-    
+            </div>
+            <div align="right" style="margin-right:150px"><a href="#">下一页</a>
+            </div>
+            
+        </div>
+        
     	<div class="cleaner"></div>
     </div>
     

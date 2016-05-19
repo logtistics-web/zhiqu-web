@@ -1,7 +1,6 @@
 package com.zhiqu.ctrl;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,38 +13,38 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.zhiqu.dto.ListResult;
 import com.zhiqu.dto.Pagination;
-import com.zhiqu.model.News;
-import com.zhiqu.service.NewsService;
+import com.zhiqu.model.LearnInfo;
+import com.zhiqu.service.CourseService;
 
 @Controller
 @RequestMapping("/")
-public class NewsCtrl {
+public class CourseCtrl {
 
 	@Autowired
-	private NewsService newsService;
-	
-	@RequestMapping(value = "/newsIndex")
+	private CourseService courseService;
+	@RequestMapping(value = "/courseIndex")
 	public ModelAndView toIndex(){
-		return new ModelAndView("news/newsIndex");
+		return new ModelAndView("course/courseIndex");
 	}
-	@RequestMapping(value = "/newsList")
+	@RequestMapping(value = "/courseList")
 	public String loadList(Pagination pagination, ModelMap model,
 			HttpServletRequest request) {
 
-		ListResult listResult = newsService.getNews(pagination);
+		ListResult listResult = courseService.getInfos(pagination);
 		@SuppressWarnings("unchecked")
-		List<News> newsList = listResult.getResult();
+		List<LearnInfo> infoList = listResult.getResult();
 		
-		model.addAttribute("newsList", newsList);
+		model.addAttribute("infoList", infoList);
 
-		return "news/newsList";
+		return "course/courseList";
 	}
-	@RequestMapping(value="newsDetail/{nid}")
-	public String loadModify(@PathVariable Integer nid, ModelMap model,
+	@RequestMapping(value = "/courseDetail/{cid}")
+	public String loadDetail(@PathVariable Integer cid, ModelMap model,
 			HttpServletRequest request) {
 		
-		News news = newsService.findById(nid);
-		model.addAttribute("news", news);
-		return "news/newsDetail";
+		LearnInfo learnInfo = courseService.findById(cid);
+		System.out.println(learnInfo.getTitle());
+		model.addAttribute("learnInfo", learnInfo);
+		return "course/courseDetail";
 	}
 }

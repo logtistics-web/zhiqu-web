@@ -1,5 +1,7 @@
 package com.zhiqu.mapper;
 
+import java.util.List;
+
 import com.zhiqu.model.Down;
 
 public interface DownMapper {
@@ -14,4 +16,6 @@ public interface DownMapper {
     int updateByPrimaryKeySelective(Down record);
 
     int updateByPrimaryKey(Down record);
+
+	List<Down> findAllFiles();
 }

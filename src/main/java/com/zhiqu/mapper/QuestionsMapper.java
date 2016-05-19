@@ -1,5 +1,7 @@
 package com.zhiqu.mapper;
 
+import java.util.List;
+
 import com.zhiqu.model.Questions;
 
 public interface QuestionsMapper {
@@ -14,4 +16,6 @@ public interface QuestionsMapper {
     int updateByPrimaryKeySelective(Questions record);
 
     int updateByPrimaryKey(Questions record);
+
+	List<Questions> selectQuestions();
 }

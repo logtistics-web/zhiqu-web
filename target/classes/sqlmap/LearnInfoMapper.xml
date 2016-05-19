@@ -4,32 +4,30 @@
   <resultMap id="BaseResultMap" type="com.zhiqu.model.LearnInfo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="sj" property="sj" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.zhiqu.model.LearnInfo" extends="BaseResultMap" >
-    <result column="content" property="content" jdbcType="LONGVARCHAR" />
-  </resultMap>
   <sql id="Base_Column_List" >
-    id, title, sj
+    id, title, content, sj
   </sql>
-  <sql id="Blob_Column_List" >
-    content
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    <include refid="Blob_Column_List" />
+    <include refid="Base_Column_List" />
     from learninfor
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="findAllInfos" resultMap="BaseResultMap">
+  	select * from learninfor
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from learninfor
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.zhiqu.model.LearnInfo" >
-    insert into learninfor (id, title, sj, 
-      content)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{sj,jdbcType=VARCHAR}, 
-      #{content,jdbcType=LONGVARCHAR})
+    insert into learninfor (id, title, content, 
+      sj)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{sj,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zhiqu.model.LearnInfo" >
     insert into learninfor
@@ -40,11 +38,11 @@
       <if test="title != null" >
         title,
       </if>
-      <if test="sj != null" >
-        sj,
-      </if>
       <if test="content != null" >
         content,
+      </if>
+      <if test="sj != null" >
+        sj,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -54,11 +52,11 @@
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
       </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
       <if test="sj != null" >
         #{sj,jdbcType=VARCHAR},
-      </if>
-      <if test="content != null" >
-        #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -68,25 +66,19 @@
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
       <if test="sj != null" >
         sj = #{sj,jdbcType=VARCHAR},
       </if>
-      <if test="content != null" >
-        content = #{content,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zhiqu.model.LearnInfo" >
-    update learninfor
-    set title = #{title,jdbcType=VARCHAR},
-      sj = #{sj,jdbcType=VARCHAR},
-      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zhiqu.model.LearnInfo" >
     update learninfor
     set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
       sj = #{sj,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

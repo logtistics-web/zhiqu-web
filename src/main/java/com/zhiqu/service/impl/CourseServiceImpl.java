@@ -9,34 +9,33 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zhiqu.dto.ListResult;
 import com.zhiqu.dto.Pagination;
-import com.zhiqu.mapper.NewsMapper;
-import com.zhiqu.model.News;
-import com.zhiqu.service.NewsService;
+import com.zhiqu.mapper.LearnInfoMapper;
+import com.zhiqu.model.LearnInfo;
+import com.zhiqu.service.CourseService;
 import com.zhiqu.util.PaginationUtil;
 
-@Service("NewsService")
-public class NewsServiceImpl implements NewsService{
+@Service("CourseService")
+public class CourseServiceImpl implements CourseService{
 
 	@Autowired
-	private NewsMapper newsMapper;
+	private LearnInfoMapper learnMapper;
 	
-	public ListResult<News> getNews(Pagination pagination) {
-		
+	public ListResult<LearnInfo> getInfos(Pagination pagination) {
 		PaginationUtil.initDateQueryCondition(pagination);
 		//设置分页区间，并设置第三个参数为true，计算总记录数
 	    PageHelper.startPage(pagination.getCurrentPage(), pagination.getPageCount(), true);
 		
-		List<News> newsList = newsMapper.findAllNews();
+		List<LearnInfo> list = learnMapper.findAllInfos();
 		
-		PageInfo page = new PageInfo(newsList);
-		ListResult listResult = new ListResult(newsList,page.getTotal());
+		PageInfo page = new PageInfo(list);
+		ListResult listResult = new ListResult(list,page.getTotal());
 		
 		return listResult;
 	}
 
-	public News findById(Integer id) {
+	public LearnInfo findById(Integer id) {
 		
-		return newsMapper.selectByPrimaryKey(id);
+		return learnMapper.selectByPrimaryKey(id);
 	}
 
 }

@@ -7,9 +7,12 @@
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="addtime" property="addtime" jdbcType="VARCHAR" />
     <result column="member" property="member" jdbcType="VARCHAR" />
+    <result column="replay" property="replay" jdbcType="VARCHAR" />
+    <result column="replayer" property="replayer" jdbcType="VARCHAR" />
+    <result column="replaytime" property="replaytime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, title, content, addtime, member
+    id, title, content, addtime, member, replay, replayer, replaytime
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -17,15 +20,20 @@
     from question
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectQuestions" resultMap="BaseResultMap">
+  	select * from question
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from question
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.zhiqu.model.Questions" >
     insert into question (id, title, content, 
-      addtime, member)
+      addtime, member, replay, 
+      replayer, replaytime)
     values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{addtime,jdbcType=VARCHAR}, #{member,jdbcType=VARCHAR})
+      #{addtime,jdbcType=VARCHAR}, #{member,jdbcType=VARCHAR}, #{replay,jdbcType=VARCHAR}, 
+      #{replayer,jdbcType=VARCHAR}, #{replaytime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.zhiqu.model.Questions" >
     insert into question
@@ -45,6 +53,15 @@
       <if test="member != null" >
         member,
       </if>
+      <if test="replay != null" >
+        replay,
+      </if>
+      <if test="replayer != null" >
+        replayer,
+      </if>
+      <if test="replaytime != null" >
+        replaytime,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -61,6 +78,15 @@
       </if>
       <if test="member != null" >
         #{member,jdbcType=VARCHAR},
+      </if>
+      <if test="replay != null" >
+        #{replay,jdbcType=VARCHAR},
+      </if>
+      <if test="replayer != null" >
+        #{replayer,jdbcType=VARCHAR},
+      </if>
+      <if test="replaytime != null" >
+        #{replaytime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -79,6 +105,15 @@
       <if test="member != null" >
         member = #{member,jdbcType=VARCHAR},
       </if>
+      <if test="replay != null" >
+        replay = #{replay,jdbcType=VARCHAR},
+      </if>
+      <if test="replayer != null" >
+        replayer = #{replayer,jdbcType=VARCHAR},
+      </if>
+      <if test="replaytime != null" >
+        replaytime = #{replaytime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -87,7 +122,10 @@
     set title = #{title,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       addtime = #{addtime,jdbcType=VARCHAR},
-      member = #{member,jdbcType=VARCHAR}
+      member = #{member,jdbcType=VARCHAR},
+      replay = #{replay,jdbcType=VARCHAR},
+      replayer = #{replayer,jdbcType=VARCHAR},
+      replaytime = #{replaytime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

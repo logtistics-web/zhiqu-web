@@ -61,7 +61,7 @@
                 <div class="cleaner"></div>
             </div>
             
-            <div class="btn_more"><a href="news.html">更多</a></div>	
+            <div class="btn_more"><a href="newsIndex">更多</a></div>	
         </div>
         
         <div class="col_w300">
@@ -79,7 +79,7 @@
                 <li>应用数学</li>                        
             </ul>
             <div class="cleaner"></div>
-            <div class="btn_more"><a href="services.html">更多</a></div>
+            <div class="btn_more"><a href="courseIndex">更多</a></div>
         </div>
         
         <div class="col_w300 col_last">

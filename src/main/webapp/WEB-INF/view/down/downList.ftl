@@ -32,50 +32,41 @@
     <div id="templatemo_content">
     	
         <div class="col_w601">
-        	<div style="width:98%;background-color:#eeeeee;">
+        	
+            <div style="width:900px;background-color:#eeeeee;">
                 <div style="position:absolute;top:413px;"><h2 >公告信息列表</h2></div>
                 <table align="center"> 
                 
-                    <tr>
-                        <td  height="30px" width="400px">
-                        公告名称
-                        </td>
-                        <td  height="30px" width="200px" >发布人
-                        </td>                        
-                        <td  height="30px" width="200px">&nbsp;&nbsp;发布时间
+                    <tr align="center">
+                        <td  height="30px" width="200px">资料标题</td>
+                        <td  height="30px" width="100px">资料类型</td>
+                        <td  height="30px" width="100px">资料下载</td>
+                        <td  height="30px" width="250px">资料说明</td>
+                        <td  height="30px" width="100px" >发布人</td>                        
+                        <td  height="30px" width="150px">&nbsp;&nbsp;发布时间
                         </td>
                     </tr>  
-                    <#if newsList??>
-                    	 <#list newsList as news>
-                   			 <tr>
-                        		<td  height="30px" width="600px">
-                        		<a  href="newsDetail/${news.id}" >
-                        			<#if news.getTitle()??>
-                           				 ${news.title}
-                        			</#if>
-                        		</a>
-                        		</td>
-                        		<td  height="30px">
-                        		<span>
-                        			<#if news.getAdder()??>
-                           				 ${news.adder}
-                        			</#if>
-                       			 </span>
-                        		</td>
-                        		<td  height="30px">
-                        		<span>
-                        			<#if news.getAddtime()??>
-                           				 ${news.addtime}
-                        			</#if>
-                        		</span>
-                        	</td>
-                    	</tr>
-                    	</#list>
-                    	</#if>
+                    <#if downList??>
+                    <#list downList as down>
+                    <tr align="center">
+                        <td  height="30px">${down.title}</td>
+                        <td  height="30px">${down.fl}</td>
+                        <td  height="30px"><a  href="#" >download</a></td>
+                        <td  height="30px">${down.sm}</td>
+                        <td  height="30px">${down.fbr}</td>
+                        <td  height="30px"><span>[${down.sj}]</span>
+                        </td>
+                    </tr>
+                    	
+                    </#list>
+                    </#if>
                 </table>
-                <div id="fbMappingPageBar"></div>
-                </div>
-    
+            </div>
+            
+            
+        </div>
+        
+        
     	<div class="cleaner"></div>
     </div>
     

@@ -1,5 +1,7 @@
 package com.zhiqu.model;
 
+import java.util.Date;
+
 public class Questions {
     private Integer id;
 
@@ -10,6 +12,12 @@ public class Questions {
     private String addtime;
 
     private String member;
+
+    private String replay;
+
+    private String replayer;
+
+    private Date replaytime;
 
     public Integer getId() {
         return id;
@@ -49,5 +57,29 @@ public class Questions {
 
     public void setMember(String member) {
         this.member = member == null ? null : member.trim();
+    }
+
+    public String getReplay() {
+        return replay;
+    }
+
+    public void setReplay(String replay) {
+        this.replay = replay == null ? null : replay.trim();
+    }
+
+    public String getReplayer() {
+        return replayer;
+    }
+
+    public void setReplayer(String replayer) {
+        this.replayer = replayer == null ? null : replayer.trim();
+    }
+
+    public Date getReplaytime() {
+        return replaytime;
+    }
+
+    public void setReplaytime(Date replaytime) {
+        this.replaytime = replaytime;
     }
 }

@@ -7,4 +7,6 @@ import com.zhiqu.model.News;
 public interface NewsService {
 
 	public ListResult<News> getNews(Pagination pagination);
+	
+	public News findById(Integer id);
 }

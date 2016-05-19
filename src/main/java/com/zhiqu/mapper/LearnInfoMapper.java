@@ -1,5 +1,7 @@
 package com.zhiqu.mapper;
 
+import java.util.List;
+
 import com.zhiqu.model.LearnInfo;
 
 public interface LearnInfoMapper {
@@ -16,4 +18,6 @@ public interface LearnInfoMapper {
     int updateByPrimaryKeyWithBLOBs(LearnInfo record);
 
     int updateByPrimaryKey(LearnInfo record);
+
+	List<LearnInfo> findAllInfos();
 }
