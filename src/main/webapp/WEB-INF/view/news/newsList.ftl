@@ -3,6 +3,7 @@
 <#assign fn=JspTaglibs["http://java.sun.com/jsp/jstl/functions"]>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>智趣教育 教学资源管理系统</title>
 <meta name="keywords" content="sailing, theme, web design, free templates, full-site, website templates, CSS, HTML" />
@@ -74,14 +75,14 @@
                     	</#if>
                 </table>
                 <div id="fbMappingPageBar"></div>
-                </div>
+                
     
     	<div class="cleaner"></div>
-    </div>
+    
     
 	<div class="cleaner"></div>
-</div>
-</div>
+
+
 
 <#include "/include/footer.ftl"/>
 

@@ -14,6 +14,7 @@
 <script type="text/javascript" src="<@c.url value='js/jquery-ui.min.js'/>" ></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+	
 		$("#featured > ul").tabs({fx:{opacity: "toggle"}}).tabs("rotate", 5000, true);
 	});
 </script>
@@ -76,10 +77,10 @@
         </div>
     
     	<div class="cleaner"></div>
-    </div>
+    
     
 	<div class="cleaner"></div>
-</div>
+
 </div>
 
 <#include "/include/footer.ftl"/>

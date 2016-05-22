@@ -21,7 +21,7 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="findAllFiles" resultMap="BaseResultMap" >
-  	select * from down
+  	select * from down where sh = '已审核'
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from down
